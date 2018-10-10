@@ -2,6 +2,7 @@
 Simples aplicação feita utilizando PHP7 para listar e salvar dados no banco de dados.
 
  ## Pré-requisitos
+ - Nginx
  - PHP 7.0+
  - MySQL
 
