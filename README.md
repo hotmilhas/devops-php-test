@@ -24,3 +24,6 @@ Crie um banco de dados no AWS RDS e execute o seguinte script:
         `fabricacao` VARCHAR(45) NULL,
         PRIMARY KEY (`id`)
     );
+## Testes
+ 
+ - Rodar o comando `php vendor/bin/phpunit tests`
