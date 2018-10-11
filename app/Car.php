@@ -35,7 +35,6 @@ class Car
                 $conn = $this->mysql->getConnection();
                 $sql = "insert into cars (marca, modelo, fabricacao) values (?, ?, ?)";
 
-                /** @var $conn PDO */
                 $stmt = $conn->prepare($sql);
                 $result = $stmt->execute([$car->marca, $car->modelo, $car->fabricacao]);
             }
@@ -53,7 +52,6 @@ class Car
             $conn = $this->mysql->getConnection();
             $sql = 'select * from cars';
 
-            /** @var $conn PDO */
             $stmt = $conn->query($sql);
 
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -62,4 +60,21 @@ class Car
             exit($e->getMessage());
         }
     }
+
+    public function truncate() : bool
+    {
+        try {
+            $conn = $this->mysql->getConnection();
+            $sql = 'TRUNCATE TABLE cars';
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+
+    }
+
 }

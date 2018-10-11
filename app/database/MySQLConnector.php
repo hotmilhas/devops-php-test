@@ -38,6 +38,9 @@ class MySQLConnector
         return ($this->pdo instanceof PDO);
     }
 
+    /**
+    * @return PDO
+    */
     public function getConnection()
     {
         return $this->pdo;
